@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #39722d; /* Verde principal del fondo */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1b5c1a; /* Verde más oscuro para el encabezado */
+  color: white;
+  padding: 10px 15px;
+}
+
+.header .icon {
+  font-size: 28px;
+  color: white;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+}
+
+.header .logo img {
+  /* Adjust as per your logo size */
+  margin-right: 10px; /* Space between logo and potential text */
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.info-box {
+  background-color: #1b5c1a; /* Similar dark green background for content boxes */
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px; /* Space between the two info boxes */
+  text-align: justify; /* Justify text within the box */
+}
+
+.info-box:last-child {
+  margin-bottom: 0; /* No bottom margin for the last box */
+}
+
+.info-box h2 {
+  font-size: 1.1em;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.info-box p {
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.football-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Slightly rounded corners for the image */
+}

@@ -108,7 +108,9 @@
           </a>
         </div>
         <div class="nav-card">
-          <span>Información General</span>
+          <a href="./pages/informacion.php">
+            <span>Información General</span>
+          </a>
         </div>
       </div>
     </main>
