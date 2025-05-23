@@ -61,14 +61,7 @@ body {
 }
 
 .logo img {
-  height: 35px;
-  width: 35px;
   border-radius: 50%;
-}
-
-.logo h1 {
-  font-size: 1.1em;
-  margin: 0;
 }
 
 .user-icon {

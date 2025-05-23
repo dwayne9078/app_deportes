@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@
         <div class="header">
             <a href="../index.php"><i class="material-icons icon">arrow_back</i></a>
             <div class="logo">
-
+                <img src="../assets/felpudo.png" alt="logo" width="48">
             </div>
             <i class="material-icons icon">person</i>
         </div>

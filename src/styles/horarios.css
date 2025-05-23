@@ -26,14 +26,8 @@ body {
 }
 
 .header .logo img {
-  height: 35px;
   /* Ajusta según el tamaño de tu logo de balón */
   margin-right: 10px;
-}
-
-.header .logo span {
-  font-size: 20px;
-  font-weight: bold;
 }
 
 .schedule-header {

@@ -19,9 +19,9 @@
     <header class="header">
       <div class="logo">
         <img
-          src="https://via.placeholder.com/40x40"
+          src="assets/felpudo.png"
+          height="100"
           alt="Felpudo College Logo" />
-        <h1>FELPUDO COLLEGE</h1>
       </div>
       <div class="user-icon">
         <i class="fas fa-user-circle"></i>
@@ -94,28 +94,18 @@
       <div class="navigation-cards">
         <div class="nav-card">
           <a href="./pages/horarios.php">
-            <img
-              src="https://via.placeholder.com/100x100"
-              alt="Horarios icon" />
             <span>Horarios</span>
           </a>
         </div>
         <div class="nav-card">
-          <img
-            src="https://via.placeholder.com/100x100"
-            alt="Reservar icon" />
-          <span>Reservar</span>
+          <a href="./pages/reservar.php">
+            <span>Reservar</span>
+          </a>
         </div>
         <div class="nav-card">
-          <img
-            src="https://via.placeholder.com/100x100"
-            alt="Resultados icon" />
           <span>Resultados</span>
         </div>
         <div class="nav-card">
-          <img
-            src="https://via.placeholder.com/100x100"
-            alt="Información General icon" />
           <span>Información General</span>
         </div>
       </div>

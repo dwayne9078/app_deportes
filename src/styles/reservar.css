@@ -1,0 +1,163 @@
+/* Aquí irá el CSS */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #39722d;
+
+  /* Verde principal del fondo */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1b5c1a;
+
+  /* Verde más oscuro para el encabezado */
+  color: white;
+  padding: 10px 15px;
+}
+
+.header .icon {
+  font-size: 28px;
+  color: white;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+}
+
+.header .logo img {
+  /* Ajusta según el tamaño de tu logo de balón */
+  margin-right: 10px;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.match-selection-box {
+  background-color: #1b5c1a;
+
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.match-selection-box h2 {
+  font-size: 1.1em;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Estilos para el contenedor del select personalizado */
+.custom-select-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+  width: 100%;
+  /* Ocupa el ancho completo de su contenedor */
+}
+
+.custom-select-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.custom-select {
+  -webkit-appearance: none;
+  /* Elimina estilos por defecto de Chrome/Safari */
+  -moz-appearance: none;
+  /* Elimina estilos por defecto de Firefox */
+  appearance: none;
+  /* Elimina estilos por defecto */
+  background-color: #39722d;
+  border-radius: 25px;
+  padding: 10px 15px;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  border: none;
+  /* Quitar borde nativo */
+  cursor: pointer;
+  outline: none;
+  /* Quitar contorno al enfocar */
+  padding-right: 40px;
+  /* Espacio para la flecha personalizada */
+  box-sizing: border-box;
+  /* Incluir padding en el ancho */
+}
+
+/* Estilo para la flecha personalizada del select */
+.custom-select-wrapper::after {
+  content: "arrow_drop_down";
+  /* Icono de flecha de Material Icons */
+  font-family: "Material Icons";
+  /* Usar la fuente de iconos */
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 24px;
+  pointer-events: none;
+  /* Para que los clics pasen al select subyacente */
+}
+
+/* Opcional: Estilo para las opciones si quieres personalizar el desplegable (muy limitado por CSS nativo) */
+.custom-select option {
+  background-color: #39722d;
+  /* Color de fondo para las opciones */
+  color: white;
+  padding: 10px;
+}
+
+/* Estilo para el icono del balón de fútbol animado */
+.soccer-ball-icon {
+  width: 80px;
+  height: 80px;
+  margin-top: 40px;
+  animation: kick 2s infinite ease-in-out;
+}
+
+@keyframes kick {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(10px) rotate(15deg);
+  }
+
+  50% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  75% {
+    transform: translateX(-10px) rotate(-15deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
