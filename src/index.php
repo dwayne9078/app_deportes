@@ -2,44 +2,48 @@
 <html lang="es">
 
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Felpudo College</title>
+
   <link rel="stylesheet" href="./styles/index.css" />
+
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
     rel="stylesheet" />
+
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
   <div class="desktop">
-    <header class="header">
+    <div class="header"> <a href="#"> </a>
       <div class="logo">
         <img
-          src="assets/felpudo.png"
-          height="100"
-          alt="Felpudo College Logo" />
+          src="./assets/felpudo.png"
+          height="100" alt="Felpudo College Logo" />
       </div>
-      <div class="user-icon">
-        <i class="fas fa-user-circle"></i>
-      </div>
-    </header>
+      <i class="material-icons icon">person</i>
+    </div>
 
-    <main class="main-content">
+    <div class="main-content">
+      <h1 class="section-title">Partidos</h1>
       <div class="matches-container">
         <div class="match-card past-match">
           <div class="team">
             <img
-              src="https://via.placeholder.com/50x50"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Real-madrid-icon-1467x2048-p4mfm7ya.png/250px-Real-madrid-icon-1467x2048-p4mfm7ya.png"
               alt="Real Madrid Logo" />
             <span>Real Madrid</span>
           </div>
           <span class="vs">VS</span>
           <div class="team">
-            <img src="https://via.placeholder.com/50x50" alt="Pumas Logo" />
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/ba/ClubUniversidadNacional.PNG" alt="Pumas Logo" />
             <span>Pumas</span>
           </div>
           <div class="score">3 - 9</div>
@@ -50,13 +54,13 @@
           <div class="match-card live-match">
             <div class="team">
               <img
-                src="https://via.placeholder.com/60x60"
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f0/Guadalajara_CD.svg/800px-Guadalajara_CD.svg.png"
                 alt="Chivas Logo" />
             </div>
             <span class="vs-live">VS</span>
             <div class="team">
               <img
-                src="https://via.placeholder.com/60x60"
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Club_Am%C3%A9rica_crest.svg/1200px-Club_Am%C3%A9rica_crest.svg.png"
                 alt="America Logo" />
             </div>
             <div class="live-info">
@@ -72,14 +76,14 @@
         <div class="match-card future-match">
           <div class="team">
             <img
-              src="https://via.placeholder.com/50x50"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Club_de_F%C3%BAtbol_Monterrey_2019_Logo.svg/800px-Club_de_F%C3%BAtbol_Monterrey_2019_Logo.svg.png"
               alt="Monterrey Logo" />
             <span>Monterrey</span>
           </div>
           <span class="vs">VS</span>
           <div class="team">
             <img
-              src="https://via.placeholder.com/50x50"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Real-madrid-icon-1467x2048-p4mfm7ya.png/250px-Real-madrid-icon-1467x2048-p4mfm7ya.png"
               alt="Real Madrid Logo" />
             <span>Real Madrid</span>
           </div>
@@ -92,29 +96,30 @@
       </div>
 
       <div class="navigation-cards">
-        <div class="nav-card">
+        <div class="nav-card horarios">
           <a href="./pages/horarios.php">
-            <span>Horarios</span>
+            <i class="material-icons nav-icon">schedule</i> <span>Horarios</span>
           </a>
         </div>
-        <div class="nav-card">
+        <div class="nav-card reserv">
           <a href="./pages/reservar.php">
-            <span>Reservar</span>
+            <i class="material-icons nav-icon">event_seat</i> <span>Reservar</span>
           </a>
         </div>
-        <div class="nav-card">
+        <div class="nav-card resultados">
           <a href="./pages/resultados.php">
-            <span>Resultados</span>
+            <i class="material-icons nav-icon">emoji_events</i> <span>Resultados</span>
           </a>
         </div>
-        <div class="nav-card">
+        <div class="nav-card informacion">
           <a href="./pages/informacion.php">
-            <span>Información General</span>
+            <i class="material-icons nav-icon">info</i> <span>Información General</span>
           </a>
         </div>
       </div>
-    </main>
-  </div>
+      </main>
+
+    </div>
 </body>
 
 </html>
