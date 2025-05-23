@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"); /* Using Roboto as a common, similar font */
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  background-color: #39722d;
+
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1b5c1a;
+  padding: 10px 15px;
+}
+
+.header-left,
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  justify-content: flex-start;
+}
+
+.header-right {
+  justify-content: flex-end;
+}
+
+.header-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-center h1 {
+  margin: 0;
+  font-size: 1.2em;
+  white-space: nowrap;
+}
+
+.soccer-ball-icon {
+  width: 25px; /* Adjust size as needed */
+  height: 25px;
+  filter: invert(100%); /* To make a white icon if original is black */
+}
+
+.icon {
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+  padding: 10px;
+}
+
+.results-date-range {
+  padding: 8px 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.match-day {
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 20px;
+  background-color: #1b5c1a;
+}
+
+.match-day h2 {
+  color: #fff;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+
+.match-card {
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  text-align: center;
+  gap: 5px 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden; /* To contain the pseudo-element overlay */
+}
+
+/* Dark overlay for readability over background image */
+.match-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(1px);
+  z-index: 1;
+  background-image: url("../assets/celebracion.jpeg"); /* Placeholder for stadium background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.match-card > * {
+  position: relative;
+  z-index: 2; /* Ensure content is above the overlay */
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team:first-child {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.vs {
+  grid-column: 2;
+  grid-row: 1;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.team:last-of-type {
+  /* This selects the second .team element within .match-card */
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.team-logo {
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: #fefefe;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.team-name {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.score {
+  grid-column: 1 / span 3; /* Spans across all three columns */
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #ffeb3b; /* Yellow for scores */
+}
+
+.score-home,
+.score-away {
+  padding: 0 5px; /* Little padding to make numbers distinct */
+}
+
+.winner {
+  grid-column: 1 / span 3; /* Spans across all three columns */
+  grid-row: 3;
+  background-color: #66bb6a; /* Lighter green for winner text background */
+  color: #212121; /* Dark text for winner */
+  padding: 8px 15px;
+  margin-top: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9em;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.winner.draw {
+  background-color: #ffb300; /* Orange for draw */
+}

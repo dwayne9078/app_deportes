@@ -103,7 +103,9 @@
           </a>
         </div>
         <div class="nav-card">
-          <span>Resultados</span>
+          <a href="./pages/resultados.php">
+            <span>Resultados</span>
+          </a>
         </div>
         <div class="nav-card">
           <span>Información General</span>
