@@ -1,0 +1,395 @@
+/* General Body Styles - Mobile-First Default */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #2e7d32; /* Darker green for the body background */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to the top for mobile view by default */
+  min-height: 100vh;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+}
+
+/* Main Desktop/App Container - Mobile Default */
+.desktop {
+  width: 100%;
+  max-width: 450px; /* Constrain width for mobile screens */
+  height: 100vh; /* Full viewport height for mobile app feel */
+  background-color: #4caf50; /* A shade of green */
+  border-radius: 0; /* No border-radius for full screen mobile app */
+  box-shadow: none; /* No shadow for full screen mobile app */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Important for background image / content */
+}
+
+/* Status Bar Mimic (for mobile look) - Hidden on Desktop */
+.status-bar {
+  display: flex; /* Display by default for mobile */
+  background-color: #2e7d32;
+  color: white;
+  font-size: 0.8em;
+  padding: 5px 15px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.status-bar span:first-child {
+  font-weight: bold;
+}
+.status-bar span:last-child i {
+  margin-left: 5px;
+}
+
+/* Header Section - Mobile Default */
+.header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1em;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.logo h1 {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.user-icon {
+  font-size: 2em;
+  cursor: pointer;
+  color: white;
+}
+
+/* Main Content Area - Mobile Default */
+.main-content {
+  flex-grow: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center;
+  position: relative;
+  background-image: url("https://via.placeholder.com/400x300/3e8e41/ffffff?text=Mobile+Background+Image"); /* Mobile-optimized background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Matches Container (for the carousel) - Mobile Default */
+.matches-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  z-index: 1;
+  overflow-x: auto; /* Enable horizontal scrolling for the matches if needed */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+}
+
+/* Individual Match Cards - Mobile Default */
+.match-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+/* Specific Match Card Sizes for Mobile */
+.past-match,
+.future-match {
+  width: 120px;
+  height: 140px;
+  font-size: 0.8em;
+  justify-content: space-around;
+}
+
+.live-match {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 200px;
+  height: 180px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px;
+  font-size: 0.9em;
+}
+
+.match-card .team {
+  gap: 3px;
+}
+
+.match-card .team img {
+  width: 40px;
+  height: 40px;
+}
+
+.live-match .team img {
+  width: 60px;
+  height: 60px;
+}
+
+.match-card .vs {
+  font-size: 1.2em;
+  margin: 0 5px;
+}
+
+.live-match .vs-live {
+  font-size: 1.8em;
+  margin: 0 10px;
+}
+
+.live-info {
+  font-size: 1em;
+  padding: 5px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+}
+
+.score {
+  font-size: 1.5em;
+  margin-top: 5px;
+}
+
+.time {
+  font-size: 1em;
+  margin-top: 5px;
+}
+
+.stadium {
+  font-size: 0.8em;
+  margin-top: 3px;
+}
+
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  position: relative;
+}
+
+/* Navigation Cards - Mobile Default */
+.navigation-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: auto;
+  z-index: 1;
+}
+
+.nav-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+  width: auto;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nav-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 8px;
+}
+
+.nav-card span {
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+}
+
+/* --- DESKTOP STYLES (Overrides for larger screens) --- */
+@media (min-width: 768px) {
+  /* Hide status bar on desktop */
+  .status-bar {
+    display: none;
+  }
+
+  /* Adjust body for desktop */
+  body {
+    align-items: center; /* Center vertically on desktop */
+  }
+
+  /* Desktop Main Container */
+  .desktop {
+    width: 100%;
+    max-width: 1400px; /* Increased max-width for full screen look */
+    height: 95vh; /* Take up most of the viewport height */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px; /* Add some margin from edges of the screen */
+  }
+
+  /* Header for Desktop */
+  .header {
+    padding: 20px 40px; /* More padding */
+    font-size: 1.2em;
+  }
+
+  .logo img {
+    height: 50px; /* Larger logo */
+    width: 50px;
+  }
+
+  .logo h1 {
+    font-size: 1.5em; /* Larger heading */
+  }
+
+  .user-icon {
+    font-size: 2.5em; /* Larger user icon */
+  }
+
+  /* Main Content for Desktop */
+  .main-content {
+    padding: 30px; /* More padding */
+    justify-content: space-around; /* Distribute space */
+    background-image: url("https://via.placeholder.com/1200x600/3e8e41/ffffff?text=Desktop+Background+Image"); /* Desktop-optimized background image */
+  }
+
+  /* Matches Container for Desktop */
+  .matches-container {
+    flex-wrap: nowrap; /* Keep cards in one row */
+    gap: 30px; /* Larger gap */
+    margin-bottom: 40px; /* More space */
+    overflow-x: visible; /* Disable horizontal scrolling */
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+
+  /* Match Cards for Desktop */
+  .match-card {
+    padding: 20px;
+    border-radius: 20px; /* Slightly larger border-radius */
+  }
+
+  .past-match,
+  .future-match {
+    width: 280px; /* Larger width for side cards */
+    height: 220px; /* Larger height */
+    font-size: 1em;
+  }
+
+  .live-match {
+    width: 450px; /* Significantly larger main match card */
+    height: 280px; /* Significantly larger height */
+    padding: 25px;
+    font-size: 1.1em;
+  }
+
+  .match-card .team img {
+    width: 60px; /* Larger team logos */
+    height: 60px;
+  }
+
+  .live-match .team img {
+    width: 90px; /* Even larger for main match */
+    height: 90px;
+  }
+
+  .match-card .vs {
+    font-size: 1.8em; /* Larger VS */
+    margin: 0 15px;
+  }
+
+  .live-match .vs-live {
+    font-size: 2.5em; /* Even larger live VS */
+    margin: 0 20px;
+  }
+
+  .live-info {
+    font-size: 1.2em;
+    padding: 12px;
+  }
+
+  .live-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .score {
+    font-size: 2.2em; /* Larger score */
+  }
+
+  .time {
+    font-size: 1.2em;
+  }
+
+  .stadium {
+    font-size: 1em;
+  }
+
+  /* Navigation Cards for Desktop */
+  .navigation-cards {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 30px; /* Larger gap */
+    max-width: 1000px; /* Limit width */
+    margin-top: auto; /* Push to bottom */
+  }
+
+  .nav-card {
+    padding: 25px;
+    width: 200px; /* Larger fixed width */
+    height: 200px; /* Larger fixed height */
+  }
+
+  .nav-card img {
+    width: 110px; /* Larger icons */
+    height: 110px;
+    margin-bottom: 10px;
+  }
+
+  .nav-card span {
+    font-size: 1.2em; /* Larger font */
+  }
+}

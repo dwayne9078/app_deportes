@@ -1,0 +1,148 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #39722d;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 10px 15px;
+  background-color: #1b5c1a;
+}
+
+.header .icon {
+  font-size: 28px;
+  color: white;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+}
+
+.header .logo img {
+  height: 35px;
+  /* Ajusta según el tamaño de tu logo de balón */
+  margin-right: 10px;
+}
+
+.header .logo span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.schedule-header {
+  /* Verde más claro */
+  color: white;
+  padding: 8px 15px;
+  font-weight: bold;
+}
+
+.card {
+  background-color: #1b5c1a;
+  margin: 10px 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #1b5c1a68;
+  color: #fff;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+.match-container {
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.match-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url("https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/238D/production/_95410190_gettyimages-488144002.jpg.webp");
+  /* Fondo de campo de fútbol */
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px);
+}
+
+.match {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 15px;
+  z-index: 0;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+
+.team img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: white;
+  /* Para logos que no sean circulares */
+  padding: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.team span {
+  margin-top: 5px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.vs {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0 10px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.match-info {
+  text-align: center;
+  margin-top: 10px;
+  z-index: 0;
+}
+
+.match-info p {
+  margin: 0;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.match-info .time-location {
+  color: yellow;
+  font-weight: normal;
+  text-decoration: underline;
+}
