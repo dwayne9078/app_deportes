@@ -1,14 +1,45 @@
+/*
+   resultados.css
+
+   This CSS file defines the styles for the "normal" view and controls
+   the visibility of the "wearable" view on very small screens.
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"); /* Using Roboto as a common, similar font */
 
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   background-color: #39722d;
-
   color: #fff;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevent horizontal scrollbar on body */
 }
 
+/* ---------------------------------------------------- */
+/* --- MEDIA QUERIES FOR RESPONSIVE DISPLAY CONTROL --- */
+/* (Adjust `319px` if your target wearable is slightly larger or smaller.) */
+
+/* Default: Hide wearable and show normal for screens 320px and up (phones, tablets, desktops) */
+.wearable {
+  display: none; /* Hide wearable by default */
+}
+
+.normal {
+  display: block; /* Show normal by default */
+}
+
+/* Rule for very small screens (for wearables: 319px and below) */
+@media (max-width: 319px) {
+  .normal {
+    display: none; /* Hide your original content */
+  }
+  .wearable {
+    display: block !important; /* Show the wearable content on very small screens */
+  }
+}
+/* ---------------------------------------------------- */
+
+/* Styles for the Header (applies to .normal view) */
 .header {
   display: flex;
   justify-content: space-between;
@@ -58,7 +89,7 @@ body {
   cursor: pointer;
 }
 
-/* Main Content */
+/* Main Content (applies to .normal view) */
 .main-content {
   padding: 10px;
 }
@@ -86,13 +117,29 @@ body {
   padding-left: 5px;
 }
 
+/* Container for match cards within a day (applies to .normal view) */
+.match-cards-container {
+  display: flex; /* Initially flex for horizontal scrolling */
+  flex-wrap: nowrap; /* Ensures items stay in a single row */
+  gap: 15px; /* Space between match cards */
+  overflow-x: auto; /* Enables horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS devices */
+  scroll-snap-type: x mandatory; /* Optional: Snaps to card boundaries */
+  padding-bottom: 20px; /* Add more padding for scrollbar visibility */
+  padding-left: 5px; /* Adjust as needed for spacing */
+  padding-right: 5px; /* Adjust as needed for spacing */
+}
+
+/* Styles for each individual match card (applies to .normal view) */
 .match-card {
   border-radius: 10px;
   padding: 15px;
-  margin-bottom: 15px;
+  flex-shrink: 0; /* Prevent cards from shrinking in flex container */
+  width: 300px; /* Default fixed width for cards */
+  scroll-snap-align: start; /* Optional: Aligns cards to the start of the scroll area */
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto; /* Added a row for winner */
   align-items: center;
   text-align: center;
   gap: 5px 10px;
@@ -109,7 +156,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  filter: blur(1px);
+  filter: blur(1px) brightness(0.6); /* Adjusted brightness for better readability */
   z-index: 1;
   background-image: url("../assets/celebracion.jpeg"); /* Placeholder for stadium background */
   background-size: cover;
@@ -181,7 +228,7 @@ body {
 
 .winner {
   grid-column: 1 / span 3; /* Spans across all three columns */
-  grid-row: 3;
+  grid-row: 3; /* Placed in the third row */
   background-color: #66bb6a; /* Lighter green for winner text background */
   color: #212121; /* Dark text for winner */
   padding: 8px 15px;
@@ -197,54 +244,38 @@ body {
 .winner.draw {
   background-color: #ffb300; /* Orange for draw */
 }
-/* Aplicar a partir de 768px (tabletas y escritorios) */
+
+/* MEDIA QUERIES for HORIZONTAL LAYOUT and CARD SIZING (applies to .normal view) */
+
+/* For tablets and smaller desktops */
 @media (min-width: 768px) {
-  .match-day {
-    /* Keep match-day as a container for h2 and the scrollable div */
-    display: block; /* Revert to block to stack h2 and match-cards-container */
-    padding-bottom: 10px; /* Ensure space underneath */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* No flex properties on match-day itself for horizontal scrolling */
-  }
-
-  .match-day h2 {
-    width: 100%; /* The header still takes full width */
-    flex-shrink: 0;
-    margin-bottom: 10px; /* Space between the day header and the matches */
-  }
-
-  /* NEW: Styles for the scrollable container */
   .match-cards-container {
-    display: flex; /* Make this the flex container */
-    flex-wrap: nowrap; /* Ensures items stay in a single row */
-    gap: 15px; /* Space between match cards */
-    overflow-x: auto; /* Enables horizontal scrolling */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS devices */
-    scroll-snap-type: x mandatory; /* Optional: Snaps to card boundaries */
-    padding-bottom: 20px; /* Add more padding for scrollbar visibility */
-    /* Add some padding-left/right if you want space before the first card or after the last */
-    padding-left: 5px; /* Adjust as needed for spacing */
-    padding-right: 5px; /* Adjust as needed for spacing */
+    flex-wrap: wrap; /* Allow cards to wrap into multiple rows */
+    justify-content: center; /* Center cards in the container */
+    overflow-x: hidden; /* Disable horizontal scrollbar */
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .match-card {
-    flex-shrink: 0; /* Prevent cards from shrinking */
-    width: 300px; /* Set a fixed width for each card */
-    scroll-snap-align: start; /* Optional: Aligns cards to the start of the scroll area */
-    margin-bottom: 0; /* Remove margin-bottom from previous setup */
+    width: calc(
+      50% - 22.5px
+    ); /* Two cards per row, accounting for gap and outer padding */
+    margin-bottom: 15px; /* Re-add margin-bottom for vertical spacing when wrapping */
+    padding: 15px; /* Reset padding if changed */
   }
 }
 
-/* For larger screens (bigger desktop) */
+/* For larger desktops */
 @media (min-width: 1024px) {
   .match-card {
-    width: 320px; /* Slightly wider cards for larger screens */
+    width: calc(33.333% - 20px); /* Three cards per row */
   }
 }
 
-/* For very large screens */
+/* For very large screens (e.g., TVs) */
 @media (min-width: 1200px) {
   .match-card {
-    width: 340px; /* Even wider for very large screens */
+    width: calc(25% - 18.75px); /* Four cards per row */
   }
 }
