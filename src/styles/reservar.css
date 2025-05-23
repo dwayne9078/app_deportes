@@ -1,11 +1,8 @@
-/* Aquí irá el CSS */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #39722d;
-
-  /* Verde principal del fondo */
   color: white;
   display: flex;
   flex-direction: column;
@@ -17,8 +14,6 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: #1b5c1a;
-
-  /* Verde más oscuro para el encabezado */
   color: white;
   padding: 10px 15px;
 }
@@ -34,7 +29,6 @@ body {
 }
 
 .header .logo img {
-  /* Ajusta según el tamaño de tu logo de balón */
   margin-right: 10px;
 }
 
@@ -55,7 +49,6 @@ body {
 
 .match-selection-box {
   background-color: #1b5c1a;
-
   border-radius: 8px;
   padding: 20px;
   width: 90%;
@@ -71,65 +64,416 @@ body {
   text-align: center;
 }
 
-/* Estilos para el contenedor del select personalizado */
-.custom-select-wrapper {
-  position: relative;
-  margin-bottom: 15px;
-  width: 100%;
-  /* Ocupa el ancho completo de su contenedor */
+.match-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
 
-.custom-select-wrapper:last-child {
-  margin-bottom: 0;
-}
-
-.custom-select {
-  -webkit-appearance: none;
-  /* Elimina estilos por defecto de Chrome/Safari */
-  -moz-appearance: none;
-  /* Elimina estilos por defecto de Firefox */
-  appearance: none;
-  /* Elimina estilos por defecto */
+.match-button {
   background-color: #39722d;
+  color: white;
+  border: none;
+  padding: 12px 15px;
   border-radius: 25px;
-  padding: 10px 15px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.match-button:hover {
+  background-color: #4a8c3d;
+}
+
+.match-button.active {
+  background-color: #2a7c29;
+  border: 2px solid yellow;
+}
+
+.match-details-content {
+  background-color: #1b5c1a;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  /* Por defecto, en móvil, los elementos internos se apilarán */
+  display: flex;
+  /* Asegura que el contenido sea flexible */
+  flex-direction: column;
+  /* Apila por defecto */
+  align-items: center;
+  /* Centra los elementos apilados */
+}
+
+.match-info-header {
+  background-color: transparent;
+  color: white;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
   width: 100%;
+  /* Ocupa todo el ancho disponible en móvil */
+}
+
+.match-info-header .team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.match-info-header .team img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: white;
+  padding: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.match-info-header .team span {
+  margin-top: 5px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.match-info-header .vs {
+  font-weight: bold;
+  font-size: 28px;
+  margin: 10px 0;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.match-datetime-location {
+  text-align: center;
   color: white;
   font-weight: bold;
-  font-size: 1em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.match-datetime-location .time-location {
+  color: yellow;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+/* Sección de selección de secciones (layout de estadio) */
+.section-selection {
+  background-color: transparent;
+  padding: 0;
+  text-align: center;
+  color: white;
+  width: 100%;
+  /* Ocupa todo el ancho en móvil */
+  margin-bottom: 20px;
+}
+
+.section-selection h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.stadium-layout-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 100%;
+  /* Se adapta al ancho disponible */
+  max-width: 350px;
+  /* Pero con un máximo para no ser demasiado grande */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #2e6226;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  /* Incluir padding en el width */
+}
+
+.section-button {
+  background-color: #1b5c1a;
+  color: white;
   border: none;
-  /* Quitar borde nativo */
+  padding: 15px 0;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
   cursor: pointer;
-  outline: none;
-  /* Quitar contorno al enfocar */
-  padding-right: 40px;
-  /* Espacio para la flecha personalizada */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-button:hover {
+  background-color: #2a7c29;
+  transform: translateY(-2px);
+}
+
+.section-button:active,
+.section-button.active-section {
+  background-color: #1a4d19;
+  transform: translateY(0);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.4);
+  border: 2px solid yellow;
+}
+
+.pitch-area {
+  background-color: #4caf50;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 15px 0;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.pitch-area:hover {
+  background-color: #5cb85c;
+  transform: translateY(-2px);
+}
+
+.pitch-area:active {
+  background-color: #3e8e41;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------- */
+/* ESTILOS PARA LA SELECCIÓN DE ASIENTOS */
+/* --------------------------------------------------- */
+
+.seat-selection-area {
+  background-color: #1b5c1a;
+  /* Mismo color que .match-details-content */
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  /* Ocupa el 100% del contenedor padre en móvil */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  /* Espacio debajo de la selección de secciones */
   box-sizing: border-box;
   /* Incluir padding en el ancho */
 }
 
-/* Estilo para la flecha personalizada del select */
-.custom-select-wrapper::after {
-  content: "arrow_drop_down";
-  /* Icono de flecha de Material Icons */
-  font-family: "Material Icons";
-  /* Usar la fuente de iconos */
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
+.seat-selection-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
   color: white;
-  font-size: 24px;
-  pointer-events: none;
-  /* Para que los clics pasen al select subyacente */
 }
 
-/* Opcional: Estilo para las opciones si quieres personalizar el desplegable (muy limitado por CSS nativo) */
-.custom-select option {
-  background-color: #39722d;
-  /* Color de fondo para las opciones */
+.seat-selection-header .back-to-sections {
+  background: none;
+  border: none;
   color: white;
-  padding: 10px;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  /* Para centrar el icono */
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.seat-selection-header .back-to-sections:hover {
+  transform: translateX(-5px);
+}
+
+.seat-selection-header .selected-section-display {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #ffeb3b;
+  /* Amarillo brillante para la sección */
+}
+
+.seat-selection-area h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.legend {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  gap: 10px;
+  /* Espacio entre los elementos de la leyenda */
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.seat-status {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.seat-status.free {
+  background-color: #4caf50;
+  /* Verde libre */
+}
+
+.seat-status.occupied {
+  background-color: #ff5722;
+  /* Naranja/Rojo ocupado */
+}
+
+.seat-status.selected {
+  background-color: #2196f3;
+  /* Azul seleccionado */
+  border: 2px solid yellow;
+  /* Borde amarillo para resaltar */
+}
+
+.seats-grid {
+  display: grid;
+  /* Ajusta el número de columnas para que se adapte al ancho */
+  /* La clave es usar `minmax(0, 1fr)` con `auto-fit` o `auto-fill` */
+  grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+  /* Asientos de 35px, se ajustan al ancho */
+  gap: 8px;
+  /* Espacio entre los asientos */
+  background-color: #2e6226;
+  /* Fondo del área de asientos */
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
+  /* Ocupa el ancho completo disponible */
+  max-width: 350px;
+  /* Pero con un máximo para no estirarse demasiado en pantallas grandes */
+  margin: 0 auto 20px auto;
+  /* Centrar y espacio inferior */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  /* Incluir padding en el width */
+}
+
+.seat {
+  width: 35px;
+  /* Tamaño fijo para el asiento */
+  height: 35px;
+  background-color: #4caf50;
+  /* Por defecto, libre */
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.6);
+  /* Color del texto del asiento */
+  transition: background-color 0.2s ease, transform 0.1s ease, border 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* Borde sutil */
+}
+
+.seat:hover:not(.occupied) {
+  transform: scale(1.1);
+  background-color: #6ed172;
+  /* Verde más claro al pasar el ratón */
+}
+
+.seat.occupied {
+  background-color: #ff5722;
+  /* Naranja/Rojo */
+  cursor: not-allowed;
+  /* No se puede hacer clic */
+  opacity: 0.6;
+  /* Un poco transparente */
+}
+
+.seat.selected {
+  background-color: #2196f3;
+  /* Azul */
+  border: 2px solid yellow;
+  transform: scale(1.1);
+  /* Ligeramente más grande */
+}
+
+/* Caja de confirmación */
+.confirmation-box {
+  background-color: #2a7c29;
+  /* Verde oscuro */
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  /* Ocupa todo el ancho disponible */
+  box-sizing: border-box;
+  /* Incluir padding en el width */
+}
+
+.confirmation-box h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.confirmation-box p {
+  margin-bottom: 10px;
+  font-size: 0.95em;
+}
+
+.confirmation-box span {
+  font-weight: bold;
+  color: yellow;
+}
+
+.confirm-reservation-btn {
+  background-color: #4caf50;
+  /* Verde de confirmación */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-reservation-btn:hover {
+  background-color: #45a049;
+}
+
+/* Clases de utilidad */
+.hidden {
+  display: none !important;
+  /* ¡Este es crucial! */
 }
 
 /* Estilo para el icono del balón de fútbol animado */
@@ -159,5 +503,129 @@ body {
 
   100% {
     transform: translateX(0) rotate(0deg);
+  }
+}
+
+/* Media Queries para diseño en escritorio */
+@media (min-width: 768px) {
+  .match-buttons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .match-selection-box {
+    max-width: 600px;
+  }
+
+  .match-details-content {
+    max-width: 600px;
+    /* Ajustado para 2 columnas en 768px */
+  }
+
+  .stadium-layout-grid {
+    max-width: 450px;
+    /* Un poco más grande en escritorio */
+  }
+
+  /* Ajuste para que los asientos no sean demasiado grandes en tablets */
+  .seats-grid {
+    max-width: 400px;
+    /* Asegura que no haya un número fijo de columnas aquí para mayor flexibilidad */
+  }
+}
+
+/* Media Queries para diseño en escritorio */
+@media (min-width: 992px) {
+  .match-buttons-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .match-selection-box {
+    max-width: 900px; /* Ya estaba definido, pero es clave para la consistencia */
+  }
+
+  .match-details-content {
+    max-width: 900px; /* Igual que match-selection-box para que coincidan en ancho */
+    height: 100%; /* Permite que ocupe la altura disponible */
+    flex-direction: row; /* Elementos internos en fila */
+    justify-content: center;
+    align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+    gap: 20px;
+    padding-top: 30px;
+  }
+
+  .match-info-header {
+    width: 100%; /* Sigue ocupando todo el ancho */
+    margin-bottom: 30px;
+  }
+
+  .section-selection {
+    width: 45%; /* La sección del mapa del estadio toma casi la mitad del ancho */
+    margin-bottom: 0; /* Eliminar margen inferior en desktop */
+    order: 1; /* Ordena primero la selección de sección */
+  }
+
+  .seat-selection-area {
+    width: 45%; /* La sección de selección de asientos toma casi la otra mitad */
+    margin-top: 0; /* No hay margen superior extra */
+    order: 2; /* Ordena segundo la selección de asientos */
+  }
+
+  /* Comportamiento específico para el layout de dos columnas en desktop */
+  /* Cuando show-seats NO está presente, la sección de asientos se oculta. */
+  .match-details-content:not(.show-seats) .seat-selection-area {
+    display: none;
+  }
+
+  /* Cuando show-seats SÍ está presente, la sección de estadio se oculta. */
+  .match-details-content.show-seats .section-selection {
+    display: none;
+  }
+
+  /* Cuando show-seats SÍ está presente, la sección de asientos se muestra. */
+  .match-details-content.show-seats .seat-selection-area {
+    display: block;
+  }
+
+  /* Alinear las leyendas y la confirmación dentro de seat-selection-area si es necesario */
+  .seat-selection-area .legend,
+  .seat-selection-area .confirmation-box {
+    width: 100%; /* Asegura que ocupen todo el ancho dentro de su columna */
+  }
+}
+
+/* Ajustes adicionales para móviles (especialmente si el contenido se sobresale) */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 10px;
+    /* Reduce el padding en pantallas muy pequeñas */
+  }
+
+  .match-selection-box,
+  .match-details-content,
+  .seat-selection-area {
+    padding: 15px;
+    /* Reduce el padding interno */
+  }
+
+  .seats-grid {
+    gap: 5px;
+    /* Reduce el espacio entre asientos si es necesario */
+    padding: 10px;
+  }
+
+  .seat {
+    width: 30px;
+    /* Puede reducir el tamaño del asiento para que quepa más */
+    height: 30px;
+  }
+
+  .legend {
+    font-size: 0.8em;
+    /* Reduce el tamaño de la leyenda */
+  }
+
+  .seat-selection-header .selected-section-display {
+    font-size: 1.5em;
+    /* Ajusta el tamaño del título de sección */
   }
 }

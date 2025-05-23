@@ -197,3 +197,54 @@ body {
 .winner.draw {
   background-color: #ffb300; /* Orange for draw */
 }
+/* Aplicar a partir de 768px (tabletas y escritorios) */
+@media (min-width: 768px) {
+  .match-day {
+    /* Keep match-day as a container for h2 and the scrollable div */
+    display: block; /* Revert to block to stack h2 and match-cards-container */
+    padding-bottom: 10px; /* Ensure space underneath */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* No flex properties on match-day itself for horizontal scrolling */
+  }
+
+  .match-day h2 {
+    width: 100%; /* The header still takes full width */
+    flex-shrink: 0;
+    margin-bottom: 10px; /* Space between the day header and the matches */
+  }
+
+  /* NEW: Styles for the scrollable container */
+  .match-cards-container {
+    display: flex; /* Make this the flex container */
+    flex-wrap: nowrap; /* Ensures items stay in a single row */
+    gap: 15px; /* Space between match cards */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS devices */
+    scroll-snap-type: x mandatory; /* Optional: Snaps to card boundaries */
+    padding-bottom: 20px; /* Add more padding for scrollbar visibility */
+    /* Add some padding-left/right if you want space before the first card or after the last */
+    padding-left: 5px; /* Adjust as needed for spacing */
+    padding-right: 5px; /* Adjust as needed for spacing */
+  }
+
+  .match-card {
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    width: 300px; /* Set a fixed width for each card */
+    scroll-snap-align: start; /* Optional: Aligns cards to the start of the scroll area */
+    margin-bottom: 0; /* Remove margin-bottom from previous setup */
+  }
+}
+
+/* For larger screens (bigger desktop) */
+@media (min-width: 1024px) {
+  .match-card {
+    width: 320px; /* Slightly wider cards for larger screens */
+  }
+}
+
+/* For very large screens */
+@media (min-width: 1200px) {
+  .match-card {
+    width: 340px; /* Even wider for very large screens */
+  }
+}

@@ -26,44 +26,65 @@ body {
 }
 
 .header .logo img {
-  /* Ajusta según el tamaño de tu logo de balón */
   margin-right: 10px;
 }
 
 .schedule-header {
-  /* Verde más claro */
   color: white;
   padding: 8px 15px;
   font-weight: bold;
 }
 
+/* Estilos para el contenedor principal de cada día (.card) */
 .card {
-  background-color: #1b5c1a;
+  background-color: transparent; /* Hacemos el fondo transparente aquí, ya que el match-container tendrá su propio fondo */
   margin: 10px 15px;
-  border-radius: 8px;
+  border-radius: 8px; /* Mantener los bordes redondeados del contenedor principal si se desea */
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: none; /* Eliminar la sombra del contenedor principal si el match-container tendrá la suya */
+
+  /* POR DEFECTO (MÓVIL): Los match-container se apilan verticalmente */
+  display: block; /* O display: flex; flex-direction: column; si prefieres flexbox para móviles */
+  padding: 0; /* Eliminar padding que pueda afectar el layout móvil */
 }
 
+/* Estilo para el header del día */
 .card-header {
   background-color: #1b5c1a68;
   color: #fff;
   padding: 10px 15px;
   font-weight: bold;
   border-bottom: 1px solid #eee;
+  width: auto; /* Ancho automático en móvil */
+  border-radius: 8px 8px 0 0; /* Bordes redondeados solo arriba */
+  margin-bottom: 10px; /* Espacio debajo del encabezado en móvil */
+  /* En móvil, el card-header no necesita flex-shrink: 0, ya que .card no es un flex-container para los match-containers */
 }
 
+/* Estilos para cada tarjeta de partido individual (.match-container) */
 .match-container {
+  background-color: #1b5c1a; /* Fondo para cada partido */
+  margin-bottom: 15px; /* Espacio entre partidos en móvil */
+  border-radius: 8px; /* Bordes redondeados para cada partido */
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para cada partido */
+
   padding: 20px 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
   position: relative;
-  overflow: hidden;
+  z-index: 0; /* Para el pseudo-elemento */
+
+  /* En móvil, el ancho es 100% (o ajustado por el margin del .card) */
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
+/* El fondo borroso se aplica directamente al match-container */
 .match-container::before {
   content: "";
   position: absolute;
@@ -73,10 +94,10 @@ body {
   height: 100%;
   z-index: 0;
   background-image: url("https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/238D/production/_95410190_gettyimages-488144002.jpg.webp");
-  /* Fondo de campo de fútbol */
   background-size: cover;
   background-position: center;
-  filter: blur(1px);
+  filter: blur(1px) brightness(0.6);
+  border-radius: 8px;
 }
 
 .match {
@@ -85,7 +106,7 @@ body {
   width: 100%;
   justify-content: center;
   margin-bottom: 15px;
-  z-index: 0;
+  z-index: 1;
 }
 
 .team {
@@ -101,7 +122,6 @@ body {
   border-radius: 50%;
   object-fit: contain;
   background-color: white;
-  /* Para logos que no sean circulares */
   padding: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
@@ -125,7 +145,7 @@ body {
 .match-info {
   text-align: center;
   margin-top: 10px;
-  z-index: 0;
+  z-index: 1;
 }
 
 .match-info p {
@@ -139,4 +159,49 @@ body {
   color: yellow;
   font-weight: normal;
   text-decoration: underline;
+}
+
+/* MEDIA QUERIES para disposición HORIZONTAL en escritorio */
+/* Aplicar a partir de 768px (tabletas y escritorios) */
+@media (min-width: 768px) {
+  .card {
+    /* En escritorio, .card se convierte en flex container para sus match-container */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Espacio entre los match-container */
+    padding-bottom: 10px; /* Asegurar espacio debajo */
+    background-color: #1b5c1a; /* Restaurar el color de fondo del card si lo deseas para el día */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Restaurar la sombra del card */
+  }
+
+  .card-header {
+    width: 100%; /* El header ocupa todo el ancho */
+    flex-shrink: 0; /* Asegura que no se encoja */
+    margin-bottom: 10px; /* Espacio entre el header del día y los partidos */
+    border-radius: 0; /* Eliminar los bordes redondeados si la tarjeta .card ya es redondeada */
+  }
+
+  .match-container {
+    /* En escritorio, cada match-container es un elemento flex */
+    margin-bottom: 0; /* Eliminar el margen inferior cuando están en fila */
+    flex: 1 1 calc(50% - 15px); /* Por defecto 2 columnas */
+    max-width: calc(50% - 15px);
+    min-width: 280px; /* Ancho mínimo para evitar que se compriman demasiado */
+  }
+}
+
+/* Para pantallas más grandes (escritorio más grande) */
+@media (min-width: 1024px) {
+  .match-container {
+    flex: 1 1 calc(33.333% - 15px); /* 3 columnas */
+    max-width: calc(33.333% - 15px);
+  }
+}
+
+/* Para pantallas muy grandes */
+@media (min-width: 1200px) {
+  .match-container {
+    flex: 1 1 calc(25% - 15px); /* 4 columnas */
+    max-width: calc(25% - 15px);
+  }
 }

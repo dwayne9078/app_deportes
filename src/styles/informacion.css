@@ -29,7 +29,7 @@ body {
 }
 
 .header .logo img {
-  /* Adjust as per your logo size */
+  /* Adjust as per your logo size, currently height="60" in HTML */
   margin-right: 10px; /* Space between logo and potential text */
 }
 
@@ -39,35 +39,45 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* Add max-width to center the main content area on large screens */
+  max-width: 1200px; /* Adjust as needed based on desired layout width */
+  margin: 0 auto; /* Center the main content */
 }
 
 .section-title {
-  font-size: 1.3em;
+  font-size: 1.8em; /* Adjusted for consistency, will be larger on desktop */
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 25px; /* More space below title */
   text-align: center;
 }
 
+/* Base styles for info-box (for mobile first, then overridden by desktop media query) */
 .info-box {
   background-color: #1b5c1a; /* Similar dark green background for content boxes */
   border-radius: 8px;
   padding: 20px;
   width: 90%;
-  max-width: 400px;
+  max-width: 400px; /* Max width for mobile-like stacked layout */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px; /* Space between the two info boxes */
   text-align: justify; /* Justify text within the box */
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Stack image and text vertically by default */
+  align-items: center; /* Center items within the box */
 }
 
 .info-box:last-child {
   margin-bottom: 0; /* No bottom margin for the last box */
 }
 
-.info-box h2 {
+.box-title {
+  /* Renamed from h2 for more specific styling */
   font-size: 1.1em;
   margin-top: 0;
   margin-bottom: 15px;
   text-align: center;
+  color: white; /* Ensure title color is white */
 }
 
 .info-box p {
@@ -82,11 +92,100 @@ body {
 
 .image-container {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Space between image and text below it */
+  width: 100%; /* Image container takes full width of info-box */
 }
 
 .football-image {
-  max-width: 100%;
+  max-width: 100%; /* Ensures image fits within its container */
   height: auto;
   border-radius: 8px; /* Slightly rounded corners for the image */
+  display: block; /* Remove extra space below image */
+  object-fit: cover; /* Ensures image covers its area well */
+}
+
+/* Desktop-specific styles */
+@media (min-width: 768px) {
+  .header {
+    padding: 15px 40px; /* More padding for a wider header */
+  }
+
+  /* Logo height is already 60px in HTML, so this matches */
+  .header .icon {
+    font-size: 32px; /* Larger icons */
+  }
+
+  .main-content {
+    padding: 40px 20px; /* Adjust main content padding for desktop */
+  }
+
+  .section-title {
+    font-size: 2.2em; /* Larger font size for desktop main title */
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  /* Style for the first info box (main welcome text) */
+  .main-content > .info-box:first-of-type {
+    max-width: 800px; /* Wider max-width for the main text box */
+    padding: 30px; /* More padding for desktop */
+  }
+
+  .main-content > .info-box:first-of-type .box-title {
+    font-size: 1.5em; /* Slightly larger heading within the main box */
+    margin-bottom: 20px;
+  }
+
+  .main-content > .info-box:first-of-type p {
+    font-size: 1.1em; /* Larger text for readability on desktop */
+    line-height: 1.6;
+  }
+
+  /* This targets the second info-box for the side-by-side layout */
+  .main-content > .info-box:last-of-type {
+    /* Use last-of-type for the second box */
+    flex-direction: row; /* Arrange image and text side-by-side */
+    align-items: flex-start; /* Align items to the top */
+    gap: 30px; /* Space between image and text */
+    max-width: 800px; /* Match max-width of the top info box for alignment */
+    margin-top: 30px; /* Space from the top info box */
+    padding: 30px; /* Consistent padding */
+  }
+
+  .main-content > .info-box:last-of-type .image-container {
+    flex-shrink: 0; /* Prevent image container from shrinking */
+    width: 40%; /* Allocate width to the image container */
+    max-width: 300px; /* Maximum width for the image */
+    margin-bottom: 0; /* No bottom margin when side-by-side */
+  }
+
+  .main-content > .info-box:last-of-type .football-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures image covers its container well */
+  }
+
+  /* Adjust paragraphs in the second info-box */
+  .main-content > .info-box:last-of-type p {
+    font-size: 1.1em; /* Consistent text size */
+    line-height: 1.6; /* Consistent line height */
+    flex-grow: 1; /* Allow text content to grow */
+    text-align: justify; /* Justify text */
+  }
+}
+
+/* Optional: For very large screens, you might want to increase max-width for content */
+@media (min-width: 1024px) {
+  .main-content {
+    max-width: 1000px; /* Even wider main content area */
+  }
+
+  .main-content > .info-box:first-of-type,
+  .main-content > .info-box:last-of-type {
+    max-width: 900px; /* Even wider text boxes */
+  }
+
+  .main-content > .info-box:last-of-type .image-container {
+    max-width: 350px; /* Larger image on very large screens */
+  }
 }
