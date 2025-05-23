@@ -1,11 +1,41 @@
+/*
+   horarios.css
+
+   This CSS file defines the styles for the "normal" view and now also
+   controls the visibility of the "wearable_small" view on very small screens.
+*/
+
+/* Default styles for the body - these might be partially overridden by Tailwind classes on the body in HTML */
 body {
   font-family: Arial, sans-serif;
-  background-color: #39722d;
   margin: 0;
   padding: 0;
-  color: #333;
 }
 
+/* ---------------------------------------------------- */
+/* --- MEDIA QUERIES FOR RESPONSIVE DISPLAY CONTROL --- */
+/* (Adjust `319px` if your target wearable is slightly larger or smaller.) */
+
+/* Rule 1: Hide .normal content on very small screens (for wearables) */
+@media (max-width: 319px) {
+  .normal {
+    display: none; /* Hide your original content */
+  }
+  .wearable_small {
+    display: block !important; /* Show the wearable content on very small screens */
+  }
+}
+
+/* Rule 2: Hide .wearable_small content on screens 320px and larger.
+   This ensures it only appears on the absolute smallest screens. */
+@media (min-width: 320px) {
+  .wearable_small {
+    display: none !important; /* Hide the wearable content for phones, tablets, desktops, TVs */
+  }
+}
+/* ---------------------------------------------------- */
+
+/* Styles for the Header */
 .header {
   display: flex;
   align-items: center;
@@ -29,45 +59,45 @@ body {
   margin-right: 10px;
 }
 
+/* Styles for the Schedule Header */
 .schedule-header {
   color: white;
   padding: 8px 15px;
   font-weight: bold;
 }
 
-/* Estilos para el contenedor principal de cada día (.card) */
+/* Styles for the main daily container (.card) */
 .card {
-  background-color: transparent; /* Hacemos el fondo transparente aquí, ya que el match-container tendrá su propio fondo */
+  background-color: transparent; /* Background will be on match-container */
   margin: 10px 15px;
-  border-radius: 8px; /* Mantener los bordes redondeados del contenedor principal si se desea */
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: none; /* Eliminar la sombra del contenedor principal si el match-container tendrá la suya */
+  box-shadow: none; /* Shadow will be on match-container */
 
-  /* POR DEFECTO (MÓVIL): Los match-container se apilan verticalmente */
-  display: block; /* O display: flex; flex-direction: column; si prefieres flexbox para móviles */
-  padding: 0; /* Eliminar padding que pueda afectar el layout móvil */
+  /* Default (mobile): match-container stack vertically */
+  display: block;
+  padding: 0;
 }
 
-/* Estilo para el header del día */
+/* Styles for the day header inside the card */
 .card-header {
   background-color: #1b5c1a68;
   color: #fff;
   padding: 10px 15px;
   font-weight: bold;
   border-bottom: 1px solid #eee;
-  width: auto; /* Ancho automático en móvil */
-  border-radius: 8px 8px 0 0; /* Bordes redondeados solo arriba */
-  margin-bottom: 10px; /* Espacio debajo del encabezado en móvil */
-  /* En móvil, el card-header no necesita flex-shrink: 0, ya que .card no es un flex-container para los match-containers */
+  width: auto;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 10px;
 }
 
-/* Estilos para cada tarjeta de partido individual (.match-container) */
+/* Styles for each individual match card (.match-container) */
 .match-container {
-  background-color: #1b5c1a; /* Fondo para cada partido */
-  margin-bottom: 15px; /* Espacio entre partidos en móvil */
-  border-radius: 8px; /* Bordes redondeados para cada partido */
+  background-color: #1b5c1a; /* Background for each match */
+  margin-bottom: 15px; /* Space between matches on mobile */
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para cada partido */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   padding: 20px 15px;
   display: flex;
@@ -75,16 +105,14 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 0; /* Para el pseudo-elemento */
-
-  /* En móvil, el ancho es 100% (o ajustado por el margin del .card) */
+  z-index: 0;
   width: auto;
   max-width: none;
   min-width: 0;
   box-sizing: border-box;
 }
 
-/* El fondo borroso se aplica directamente al match-container */
+/* Blurred background for match-container */
 .match-container::before {
   content: "";
   position: absolute;
@@ -100,6 +128,7 @@ body {
   border-radius: 8px;
 }
 
+/* Match details */
 .match {
   display: flex;
   align-items: center;
@@ -161,47 +190,45 @@ body {
   text-decoration: underline;
 }
 
-/* MEDIA QUERIES para disposición HORIZONTAL en escritorio */
-/* Aplicar a partir de 768px (tabletas y escritorios) */
+/* MEDIA QUERIES for HORIZONTAL LAYOUT on Desktop */
+/* Apply from 768px (tablets and desktops) */
 @media (min-width: 768px) {
   .card {
-    /* En escritorio, .card se convierte en flex container para sus match-container */
     display: flex;
     flex-wrap: wrap;
-    gap: 15px; /* Espacio entre los match-container */
-    padding-bottom: 10px; /* Asegurar espacio debajo */
-    background-color: #1b5c1a; /* Restaurar el color de fondo del card si lo deseas para el día */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Restaurar la sombra del card */
+    gap: 15px;
+    padding-bottom: 10px;
+    background-color: #1b5c1a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .card-header {
-    width: 100%; /* El header ocupa todo el ancho */
-    flex-shrink: 0; /* Asegura que no se encoja */
-    margin-bottom: 10px; /* Espacio entre el header del día y los partidos */
-    border-radius: 0; /* Eliminar los bordes redondeados si la tarjeta .card ya es redondeada */
+    width: 100%;
+    flex-shrink: 0;
+    margin-bottom: 10px;
+    border-radius: 0;
   }
 
   .match-container {
-    /* En escritorio, cada match-container es un elemento flex */
-    margin-bottom: 0; /* Eliminar el margen inferior cuando están en fila */
-    flex: 1 1 calc(50% - 15px); /* Por defecto 2 columnas */
+    margin-bottom: 0;
+    flex: 1 1 calc(50% - 15px);
     max-width: calc(50% - 15px);
-    min-width: 280px; /* Ancho mínimo para evitar que se compriman demasiado */
+    min-width: 280px;
   }
 }
 
-/* Para pantallas más grandes (escritorio más grande) */
+/* For larger screens (bigger desktops) */
 @media (min-width: 1024px) {
   .match-container {
-    flex: 1 1 calc(33.333% - 15px); /* 3 columnas */
+    flex: 1 1 calc(33.333% - 15px);
     max-width: calc(33.333% - 15px);
   }
 }
 
-/* Para pantallas muy grandes */
+/* For very large screens */
 @media (min-width: 1200px) {
   .match-container {
-    flex: 1 1 calc(25% - 15px); /* 4 columnas */
+    flex: 1 1 calc(25% - 15px);
     max-width: calc(25% - 15px);
   }
 }

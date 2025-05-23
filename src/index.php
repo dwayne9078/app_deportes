@@ -26,7 +26,7 @@
       <div class="logo">
         <img
           src="./assets/felpudo.png"
-          height="100" alt="Felpudo College Logo" />
+          width="128" alt="Felpudo College Logo" />
       </div>
       <i class="material-icons icon">person</i>
     </div>
